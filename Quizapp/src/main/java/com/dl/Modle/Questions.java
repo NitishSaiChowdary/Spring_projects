@@ -1,0 +1,43 @@
+package com.dl.Modle;
+
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
+import lombok.ToString;
+@Setter
+@Getter
+
+//This annotation generates a no-argument constructor (i.e., a default constructor) for your class.
+//This is useful when you need to instantiate an object without passing any arguments
+@NoArgsConstructor
+@ToString
+//This annotation generates a constructor with parameters for all the fields in the class. 
+//It allows you to create an object and initialize all its fields in one step
+@AllArgsConstructor 
+@Entity
+public class Questions {
+	
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	private int id;
+	
+	private String level;
+	
+	private String subject;
+	
+	private String Question;
+	
+	private String Option1;
+	
+	private String Option2;
+	
+	private String Option3;
+	
+	private String rightAnswer;
+
+}
