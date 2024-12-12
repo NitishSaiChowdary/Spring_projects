@@ -75,7 +75,7 @@ public class AccountController {
 	//Delete rest api 
 	
 
-	@DeleteMapping("/{id}")
+	@DeleteMapping("Accountdelete/{id}")
 	public void deleteAccount(@PathVariable("id")Long id) {
 		accountService.deleteAccount(id);
 		

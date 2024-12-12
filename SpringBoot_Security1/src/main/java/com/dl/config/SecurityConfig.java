@@ -5,6 +5,7 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.AuthenticationProvider;
+import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.authentication.dao.DaoAuthenticationProvider;
 import org.springframework.security.config.Customizer;
 import org.springframework.security.config.annotation.authentication.configuration.AuthenticationConfiguration;
@@ -19,20 +20,26 @@ import org.springframework.security.core.userdetails.User;
 //import org.springframework.security.provisioning.InMemoryUserDetailsManager;
 //import org.springframework.security.provisioning.UserDetailsManager;
 import org.springframework.security.web.SecurityFilterChain;
+import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
 
+import com.dl.filter.JwtFilter;
 import com.dl.service.MyUserDetailsService;
+
+import jakarta.servlet.Filter;
 
 @Configuration
 @EnableWebSecurity
 public class SecurityConfig {
-	
+	@Autowired
+	private JwtFilter jwtFilter;
 	
 	@Autowired
 	private MyUserDetailsService myUserDetailsService;
 	
 	@Bean
 	public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
-		return http.csrf(customizer -> customizer.disable())
+		return http
+		.csrf(customizer -> customizer.disable())
 		.authorizeHttpRequests(request ->request
 		.requestMatchers("register","login")
 		.permitAll()
@@ -40,6 +47,7 @@ public class SecurityConfig {
 		.httpBasic(Customizer.withDefaults())
 		.sessionManagement(session ->
 		session.sessionCreationPolicy(SessionCreationPolicy.STATELESS))
+		.addFilterBefore(jwtFilter,UsernamePasswordAuthenticationFilter.class)
 		.build();	
 //		.formLogin(Customizer.withDefaults())	
 	}
