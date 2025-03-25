@@ -1,0 +1,5 @@
+{"properties": [{
+  "name": "hikariConfig.setTransactionIsolation(\"TRANSACTION_READ_COMMITTED\");",
+  "type": "java.lang.String",
+  "description": "A description for 'hikariConfig.setTransactionIsolation(\"TRANSACTION_READ_COMMITTED\");'"
+}]}

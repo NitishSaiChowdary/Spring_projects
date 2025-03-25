@@ -1,0 +1,10 @@
+package com.dl.Repo;
+
+import org.springframework.context.annotation.Configuration;
+import org.springframework.data.jpa.repository.JpaRepository;
+
+import com.dl.Modle.Questions;
+@Configuration
+public interface Repo extends JpaRepository<Questions,Integer>{
+
+}

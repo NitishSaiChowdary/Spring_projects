@@ -1,0 +1,64 @@
+package com.dl.model;
+
+import java.util.Date;
+
+import jakarta.persistence.Column;
+import jakarta.persistence.Entity;
+import jakarta.persistence.EnumType;
+import jakarta.persistence.Enumerated;
+import lombok.Getter;
+import lombok.Setter;
+
+
+
+@Setter
+@Getter
+@Entity
+public class LeadModel {
+	@Column
+	private int customerId;
+	
+	@Column
+	private String customerName;
+	
+	@Column
+	private Long customerMoblieno;
+	
+	@Column
+	private String customerEmail;
+	
+	@Column
+	private Double customerFeequoted;
+	
+	@Column
+	private String customerDescription;
+	
+	@Column
+	private int customerCc;
+	
+	@Column
+	private Date customerData;
+	
+	
+	@Enumerated(EnumType.STRING)
+	private BatchTiming batchTiming;
+	
+	@Enumerated(EnumType.STRING)
+	private ClassMode classMode;
+	
+	@Enumerated(EnumType.STRING)
+	private Courses courses;
+	
+	@Enumerated(EnumType.STRING)
+	private LeadSource leadSource;
+	
+	@Enumerated(EnumType.STRING)
+	private LeadStatus leadStatus;
+	
+	@Enumerated(EnumType.STRING)
+	private TechStack techStack;
+
+		 
+	
+
+}

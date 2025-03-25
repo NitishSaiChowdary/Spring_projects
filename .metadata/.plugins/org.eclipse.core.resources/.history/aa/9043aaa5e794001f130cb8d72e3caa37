@@ -1,0 +1,18 @@
+package com.dl.model;
+
+public enum BatchTiming {
+	_7AM_8AM_,
+	_8AM_9AM_,
+	_9AM_10AM_,
+	_10AM_11AM_,
+	_11AM_12PM_,
+	_12PM_1PM_,
+	_1PM_2PM_,
+	_2PM_3PM_,
+	_3PM_4PM_,
+	_4PM_5PM_,
+	_5PM_6PM_,
+	_6PM_7PM_,
+	_7PM_8PM_,
+	_8PM_9PM_  
+}

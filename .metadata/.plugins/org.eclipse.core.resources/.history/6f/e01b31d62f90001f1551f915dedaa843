@@ -1,0 +1,11 @@
+package com.dl.repository;
+
+import org.springframework.data.repository.CrudRepository;
+import org.springframework.stereotype.Repository;
+
+import com.dl.model.LeadModel;
+
+@Repository
+public interface LeadRepository extends CrudRepository<LeadModel,ID> {
+
+}

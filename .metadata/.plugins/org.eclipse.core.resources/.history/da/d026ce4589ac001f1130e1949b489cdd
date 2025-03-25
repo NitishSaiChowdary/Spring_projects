@@ -1,0 +1,28 @@
+package com.dl.controller;
+
+import java.util.ArrayList;
+import java.util.List;
+
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RestController;
+
+import com.dl.model.LeadModel;
+
+@RestController
+public class LeadModelController {
+	
+	
+	private List<LeadModel> leadmodels=new ArrayList<>(List.of(
+			new LeadModel(1, "Nitish", 60),
+	        new LeadModel(2, "Amit", 70),
+	        new LeadModel(3, "Vikas", 80)
+			));
+	
+	
+	@GetMapping("/leadModel")
+	public List<LeadModel> getleadModel(){
+		return leadmodels;
+		
+	}
+
+}

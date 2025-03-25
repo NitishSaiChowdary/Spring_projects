@@ -1,0 +1,5 @@
+package com.dl.security.config1;
+
+public class SecurityConfig {
+
+}

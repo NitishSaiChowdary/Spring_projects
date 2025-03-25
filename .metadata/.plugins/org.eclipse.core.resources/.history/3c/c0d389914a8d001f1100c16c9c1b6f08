@@ -1,0 +1,27 @@
+package com.dl.model;
+
+import java.util.Date;
+
+import lombok.Getter;
+import lombok.Setter;
+
+
+@Setter
+@Getter
+
+public class LeadModel {
+	
+	
+	private int customerId;
+	private String customerName;
+	private Long customerMoblieno;
+	private String customerEmail;
+	private Double customerFeequoted;
+	private String customerDescription;
+	private int customerCc;
+	private Date customerData;
+	
+	
+	
+
+}

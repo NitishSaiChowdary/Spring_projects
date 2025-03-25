@@ -1,0 +1,19 @@
+package com.dl.service;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import com.dl.model.Users;
+import com.dl.repo.UserRepo;
+
+@Service
+public class UsersService {
+	@Autowired
+	private UserRepo userRepo;
+	
+	public Users register(Users user) {
+		return userRepo.save(user);
+		
+	}
+
+}

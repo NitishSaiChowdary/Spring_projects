@@ -1,0 +1,6 @@
+package com.dl.model;
+
+public enum TechStack {
+	CLOUDOPS,SALESFROCE,FULLSTACK,DATASTACK,SERVICENOW,BUSINESSSTACK
+
+}

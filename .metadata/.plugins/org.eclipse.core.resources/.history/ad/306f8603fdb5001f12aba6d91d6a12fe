@@ -1,0 +1,26 @@
+package com.dl.Service;
+
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Example;
+import org.springframework.stereotype.Service;
+
+import com.dl.Modle.Questions;
+import com.dl.Repo.Repo;
+
+@Service
+public class QuestionService {
+	@Autowired
+	private Repo repo;
+
+	public QuestionService(Repo repo) {
+		super();
+		this.repo = repo;
+	}
+	
+	public List<Questions> getAllQuestion() {
+		return repo.findAll();
+	}
+
+}

@@ -1,0 +1,14 @@
+package com.dl.Repo;
+
+import java.util.List;
+
+import org.springframework.context.annotation.Configuration;
+import org.springframework.data.jpa.repository.JpaRepository;
+
+import com.dl.Modle.Questions;
+@Configuration
+public interface Repo extends JpaRepository<Questions,Integer>{
+
+	List<Questions> getAllQuestion(Questions questions);
+
+}

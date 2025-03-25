@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Rename resource &apos;SpringApitester/src/main/resources/templates/userDetails.html&apos; to &apos;userDetails.jsp&apos;" description="Rename resource &apos;userDetails.html&apos;" flags="7" id="org.eclipse.ltk.core.refactoring.rename.resource" input="src/main/resources/templates/userDetails.html" name="userDetails.jsp" stamp="1729247846635" updateReferences="true"/>
+</session>
