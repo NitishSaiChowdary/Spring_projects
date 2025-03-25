@@ -4,6 +4,9 @@ import java.util.List;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 import org.springframework.web.bind.annotation.RequestBody;
 
@@ -56,7 +59,7 @@ public class EmpServiceImpl implements EmpService {
 	public Long countEmp() {
 		
 		return empRepository.count();
-	}
+	} 
 
 	//updateEmpById
 	@Override
@@ -79,8 +82,6 @@ public class EmpServiceImpl implements EmpService {
 		return empRepository.findById(id).orElseThrow(() -> 
 		new ResourceNotFoundException("Employee", "Id", id));
 	}
-	
-	
 	
 	@Override
 	public void deleteById(Long id) {
@@ -107,10 +108,20 @@ public class EmpServiceImpl implements EmpService {
 		
 		return empRepository.findLeadByemail(email);
 	}
-public List<EmpModel> findByFirstNameStartingWith(String prefix) {
-	// TODO Auto-generated method stub
-	return empRepository.findByFirstNameStartingWith(prefix);
-}  
+	
+	
+	@Override
+	public List<EmpModel> findByFirstNameStartingWith(String prefix) {
+	
+		return empRepository.findByFirstNameStartingWith(prefix);
+}
+
+
+	@Override
+	public Page<EmpModel> geEmpByPaginationAndSort(String field, int offset, int pageSize) {
+		// TODO Auto-generated method stub
+		return empRepository.findAll(PageRequest.of(offset, pageSize).withSort(Sort.by(Sort.Direction.ASC,field)));
+	}  
 
 
 

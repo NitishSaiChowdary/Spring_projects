@@ -4,8 +4,10 @@ import java.util.List;
 import java.util.Map;
 import java.util.Optional;
 
+import org.springframework.data.domain.Page;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -19,6 +21,7 @@ import com.dl.model.EmpModel;
 import com.dl.service.EmpService;
 
 @RestController
+@CrossOrigin
 @RequestMapping("/api")
 public class EmpController {
 	
@@ -62,7 +65,7 @@ public class EmpController {
 	}
 	
 	//updateEmpById
-	@PutMapping("/{id}")
+	@PutMapping("update/{id}")
 	public ResponseEntity<EmpModel> updateEmpById(@PathVariable("id")Long id , @RequestBody EmpModel empModel){
 		return new ResponseEntity<EmpModel>(empService.updateEmpById(empModel,id), HttpStatus.CREATED);
 	}
@@ -74,7 +77,8 @@ public class EmpController {
 	}
 	
 	//deleteById
-	@DeleteMapping("/{id}")
+	@CrossOrigin
+	@DeleteMapping("delete/{id}")
 	public void deleteById(@PathVariable("id")Long id) {
 		empService.deleteById(id);
 		
@@ -122,6 +126,12 @@ public class EmpController {
 	return ResponseEntity.ok(response);
 	
 	}
+	
+    @GetMapping("/PaginationAndSorting/{offSet}/{pageSize}/{field}")
+    public Page<EmpModel> getEmpByPaginationAndSort(@PathVariable int offSet,@PathVariable int pageSize,@PathVariable("field") String field){
+		return empService.geEmpByPaginationAndSort(field, offSet, pageSize);
+    	
+    }
 
 
 }

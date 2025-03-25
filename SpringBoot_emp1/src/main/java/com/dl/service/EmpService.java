@@ -1,9 +1,9 @@
 package com.dl.service;
-
 import java.util.List;
-import java.util.Optional;
+import org.springframework.data.domain.Page;
 
 import com.dl.model.EmpModel;
+
 
 
 public interface EmpService {
@@ -31,5 +31,7 @@ public interface EmpService {
 	EmpModel findleadByemail(String email);
 	
 	List<EmpModel> findByFirstNameStartingWith(String prefix);
+	
+	Page<EmpModel> geEmpByPaginationAndSort(String field,int offset,int pageSize);
 
 }
